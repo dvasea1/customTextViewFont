@@ -1,4 +1,4 @@
-package com.ebs.customtextview;
+package com.ebs.customtextview.views;
 
 /**
  * Created by barbaros.vasile on 7/31/2017.
@@ -9,7 +9,8 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 
-import java.util.HashMap;
+import com.ebs.customtextview.R;
+import com.ebs.customtextview.util.FontManager;
 
 
 public class TextViewStyled extends android.support.v7.widget.AppCompatTextView {
@@ -28,12 +29,12 @@ public class TextViewStyled extends android.support.v7.widget.AppCompatTextView 
         final int N = a.getIndexCount();
         for (int i = 0; i < N; ++i) {
             int attr = a.getIndex(i);
-            if (attr == R.styleable.TextViewStyled_fontName) {
+            if (attr == R.styleable.TextViewStyled_fontName_text) {
                 fontName = a.getString(attr);
                 applyStyledFont(fontName, context, attrs);
             }
 
-            if (attr == R.styleable.TextViewStyled_fancyText) {
+            if (attr == R.styleable.TextViewStyled_fancyText_text) {
                 fontType = a.getBoolean(attr, false);
             }
         }
@@ -49,32 +50,16 @@ public class TextViewStyled extends android.support.v7.widget.AppCompatTextView 
     private Typeface selectTypeface(Context context, int textStyle,String fName) {
         switch (textStyle) {
             case Typeface.BOLD: // bold
-                return FontCache.getTypeface(fName+".ttf", context);
+                return FontManager.getInstance().getTypeface(fName+".ttf", context);
             case Typeface.ITALIC: // medium
-                return FontCache.getTypeface(fName+".ttf", context);
+                return FontManager.getInstance().getTypeface(fName+".ttf", context);
             case Typeface.BOLD_ITALIC: // bold italic
-                return FontCache.getTypeface(fName+".ttf", context);
+                return FontManager.getInstance().getTypeface(fName+".ttf", context);
             case Typeface.NORMAL: // regular
-                return FontCache.getTypeface(fName+".ttf", context);
+                return FontManager.getInstance().getTypeface(fName+".ttf", context);
 
             default:
-                return FontCache.getTypeface(fName+".ttf", context);
-        }
-    }
-
-    private static class FontCache {
-        private static HashMap<String, Typeface> fontCache = new HashMap<>();
-        static Typeface getTypeface(String fontname, Context context) {
-            Typeface typeface = fontCache.get(fontname);
-            if (typeface == null) {
-                try {
-                    typeface = Typeface.createFromAsset(context.getAssets(), fontname);
-                } catch (Exception e) {
-                    return null;
-                }
-                fontCache.put(fontname, typeface);
-            }
-            return typeface;
+                return FontManager.getInstance().getTypeface(fName+".ttf", context);
         }
     }
 }

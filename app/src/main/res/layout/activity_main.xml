@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.ebs.customtextview.TextViewStyled
+    <com.ebs.customtextview.views.TextViewStyled
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        app:fontName="Roboto-Bold"
+        app:fontName_text="Roboto-Bold"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <com.ebs.customtextview.views.EditTextStyled
+
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        app:fontName_edit="Roboto-Bold"
         android:textColor="#000"
         android:layout_height="wrap_content"
         android:text="Hello World!" />

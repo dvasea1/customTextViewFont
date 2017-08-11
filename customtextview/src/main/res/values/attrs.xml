@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="TextViewStyled">
-        <attr name="fontName" format="string"/>
-        <attr name="fancyText" format="boolean"/>
+        <attr name="fontName_text" format="string"/>
+        <attr name="fancyText_text" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="EditTextStyled">
+        <attr name="fontName_edit" format="string"/>
+        <attr name="fancyText_edit" format="boolean"/>
     </declare-styleable>
 </resources>
