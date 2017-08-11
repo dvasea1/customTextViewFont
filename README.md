@@ -12,5 +12,5 @@ Step 2:
 Add the dependency
 
 dependencies {
-	        compile 'com.github.dvasea1:customTextViewFont:0.1'
+	        compile 'com.github.dvasea1:customTextViewFont:0.2'
 	}
