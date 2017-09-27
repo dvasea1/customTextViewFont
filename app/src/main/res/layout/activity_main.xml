@@ -5,9 +5,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.ebs.customtextview.views.TextViewStyled
+        android:paddingBottom="20dp"
+        android:background="#5e000000"
+        android:id="@+id/text"
+        android:textSize="31dp"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        app:fontName_text="Roboto-Bold"
+        android:layout_width="match_parent"
+        app:fontName_text="Poppins-Light"
+
+
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:text="Profiles for eassy\nsearching" />
+    <com.ebs.customtextview.views.TextViewStyled
+        android:layout_below="@+id/text"
+        android:background="#5e000000"
+        android:id="@+id/text1"
+        android:textSize="31dp"
+        android:layout_width="match_parent"
+        app:fontName_text="Poppins-Lighta"
+
+
         android:gravity="center"
         android:textColor="#000"
         android:layout_height="wrap_content"

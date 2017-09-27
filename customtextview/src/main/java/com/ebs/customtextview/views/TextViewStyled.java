@@ -64,20 +64,4 @@ public class TextViewStyled extends android.support.v7.widget.AppCompatTextView 
                 return FontManager.getInstance().getTypeface(fName+".ttf", context);
         }
     }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (mNegativeLineSpacing) { // If you are only supporting Api Level 16 and up, you could use the getLineSpacingExtra() and getLineSpacingMultiplier() methods here to check for a less than 1 spacing instead.
-            Layout layout = getLayout();
-            int truncatedHeight = layout.getLineDescent(layout.getLineCount()-1);
-            setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight() + truncatedHeight);
-        }
-    }
-
-    @Override
-    public void setLineSpacing(float add, float mult) {
-        mNegativeLineSpacing = add < 0 || mult < 1;
-        super.setLineSpacing(add, mult);
-    }
 }
