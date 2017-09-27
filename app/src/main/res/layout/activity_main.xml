@@ -8,9 +8,10 @@
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         app:fontName_text="Roboto-Bold"
+        android:gravity="center"
         android:textColor="#000"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Profiles for eassy\nsearching" />
 
     <com.ebs.customtextview.views.EditTextStyled
 

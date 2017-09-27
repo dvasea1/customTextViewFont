@@ -7,6 +7,7 @@ package com.ebs.customtextview.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.Layout;
 import android.util.AttributeSet;
 
 import com.ebs.customtextview.R;
@@ -18,6 +19,7 @@ public class TextViewStyled extends android.support.v7.widget.AppCompatTextView 
     public static final String ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android";
     public static String fontName ="";
     public static boolean fontType =false;
+    private boolean mNegativeLineSpacing = false;
 
     public TextViewStyled(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -61,5 +63,21 @@ public class TextViewStyled extends android.support.v7.widget.AppCompatTextView 
             default:
                 return FontManager.getInstance().getTypeface(fName+".ttf", context);
         }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (mNegativeLineSpacing) { // If you are only supporting Api Level 16 and up, you could use the getLineSpacingExtra() and getLineSpacingMultiplier() methods here to check for a less than 1 spacing instead.
+            Layout layout = getLayout();
+            int truncatedHeight = layout.getLineDescent(layout.getLineCount()-1);
+            setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight() + truncatedHeight);
+        }
+    }
+
+    @Override
+    public void setLineSpacing(float add, float mult) {
+        mNegativeLineSpacing = add < 0 || mult < 1;
+        super.setLineSpacing(add, mult);
     }
 }
