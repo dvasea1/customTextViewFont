@@ -26,13 +26,13 @@ public class FontManager {
         if (typeFace == null) {
             try {
                 typeFace = Typeface.createFromAsset(context.getAssets(), fontName);
-                System.out.println("FONT CREATE FROM ASSETS "+fontName);
+                //System.out.println("FONT CREATE FROM ASSETS "+fontName);
             } catch (Exception e) {
                 return null;
             }
             fontCache.put(fontName, typeFace);
         } else {
-            System.out.println("FONT FROM CACHE "+fontName);
+            //System.out.println("FONT FROM CACHE "+fontName);
         }
 
         return typeFace;
