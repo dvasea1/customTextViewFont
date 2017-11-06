@@ -5,19 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.ebs.customtextview.views.TextViewStyled
-        android:paddingBottom="20dp"
-        android:background="#5e000000"
+
+        android:background="#5ee13939"
         android:id="@+id/text"
-        android:textSize="31dp"
+        android:textSize="11dp"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         app:fontName_text="Poppins-Light"
-
-
         android:gravity="center"
         android:textColor="#000"
         android:layout_height="wrap_content"
-        android:text="Profiles for eassy\nsearching" />
+        android:text="Here you can change\nview between a grid view\nand a list view.sdasdasdasdasdasdasdasadasdasdasdasdasdasdasdasdasdasdasdasdas" />
+
+
     <com.ebs.customtextview.views.TextViewStyled
         android:layout_below="@+id/text"
         android:background="#5e000000"
